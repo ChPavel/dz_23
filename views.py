@@ -1,3 +1,5 @@
+from typing import Any
+
 from flask import Blueprint, request, jsonify
 from models import BatchRequestParams
 from marshmallow import ValidationError
@@ -8,9 +10,9 @@ main_bp = Blueprint('main', __name__)
 
 
 @main_bp.route('/perform_query', methods=['POST'])
-def perform_query():
+def perform_query() -> Any:
     try:
-        params = BatchRequestParams().load(request.json)
+        params: dict = BatchRequestParams().load(request.json)  # type: ignore
     except ValidationError as e:
         return e.messages, 400
 
