@@ -116,7 +116,7 @@ def regex_query(param: str, data: list[str]) -> list[str]:
             while True:
                 try:
                     prepared_data: str = next(file).strip()
-                    if re.findall(pattern, prepared_data):
+                    if re.search(pattern, prepared_data):
                         filtering_result.append(prepared_data)
                 except StopIteration:
                     break
