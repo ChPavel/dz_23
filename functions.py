@@ -136,7 +136,7 @@ CMD_TO_FUNCTIONS: dict[str, Callable] = {
 }
 
 
-def build_query(cmd: str, param: str, data: None | list[str]) -> Callable:
+def build_query(cmd: str, param: str, data: None | list[str]) -> list[str]:
     """
     Функция сопостовления по ключу и запуска нужной функции.
     :param cmd: ключевое слово из CMD_TO_FUNCTIONS.
